@@ -1,0 +1,17 @@
+{
+  "name": "audiosolutions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "font-awesome": "^4.6.3"
+  }
+}
