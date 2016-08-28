@@ -2,14 +2,10 @@
 .jumbotron {
     
     margin: 0;
-    background-color: #8FDBFF;
+    background-color: #48A3F2;
    
-    
 }
 
-.jumbotron p {
-    
-}
 
 #mainlogo {
    width: 300px;
@@ -119,18 +115,6 @@ footer {
     background-color: #777;
 }
 
-/*.typeit {*/
-   
-/*	margin: 30px;*/
-/*	white-space:nowrap;*/
-/*	overflow: hidden;*/
-/*	width: 30em;*/
-/*	animation: type 2s steps(50, end) 1;*/
-/*}*/
-
-/*@keyframes type{*/
-/*	from{ width: 0;}*/
-/*}*/
 
 /* make keyframes that tell the start state and the end state of our object */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -150,4 +134,8 @@ footer {
   -webkit-animation-duration:1s;
   -moz-animation-duration:1s;
   animation-duration:1s;
+}
+
+.well {
+    background-color: #C2DDF4;
 }
