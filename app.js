@@ -1,6 +1,5 @@
 var express = require("express");
-var sendgrid = require("sendgrid")(process.env.USER_API_KEY);
-
+var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 var app = express();
 // using SendGrid's Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
@@ -12,21 +11,19 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 
-
 app.get("/", function(req, res) {
    res.render("home"); 
-   sendgrid.send({
-   to:      'mdhellstrom@gmail.com',
-   from:    'mdhell@aol.com',
-   subject: 'Hello',
-   text:    'This is a message to myself'
-   }, function(err, json) {
-      if(err) {
-         console.log(err);
-      }
-      console.log(json);
-   
 });
+
+
+sendgrid.send({
+  to:       'mdhellstrom@gmail.com',
+  from:     'me@example.com',
+  subject:  'Hello World',
+  text:     'My first email through SendGrid.'
+}, function(err, json) {
+  if (err) { return console.error(err); }
+  console.log(json);
 });
 
 app.get("/", function(req, res) {
