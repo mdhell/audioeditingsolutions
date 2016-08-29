@@ -15,17 +15,6 @@ app.get("/", function(req, res) {
    res.render("home"); 
 });
 
-
-sendgrid.send({
-  to:       'mdhellstrom@gmail.com',
-  from:     'me@example.com',
-  subject:  'Fourth',
-  text:     'My fourth email through SendGrid.'
-}, function(err, json) {
-  if (err) { return console.error(err); }
-  console.log(json);
-});
-
 app.get("/", function(req, res) {
    res.render("home"); 
 });
@@ -45,6 +34,22 @@ app.get("/clients", function(req, res) {
 
 app.get("/getstarted", function(req, res) {
    res.render("getstarted"); 
+});
+
+app.post("/getstarted", function(req, res) {
+    var name = req.name;
+    var weburl = req.weburl;
+    var email = req.email;
+    var comments = req.comments;
+  sendgrid.send({
+  to:       'mdhellstrom@gmail.com',
+  from:     'me@example.com',
+  subject:  'Fifth',
+  text:     'My fifth email through SendGrid.' + name + weburl + email + comments
+}, function(err, json) {
+  if (err) { return console.error(err); }
+  console.log(json);
+});
 });
 
 app.get("/about", function(req, res) {
