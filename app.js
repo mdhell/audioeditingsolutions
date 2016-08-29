@@ -37,10 +37,10 @@ app.get("/getstarted", function(req, res) {
 });
 
 app.post("/getstarted", function(req, res) {
-    var name = req.name;
-    var weburl = req.weburl;
-    var email = req.email;
-    var comments = req.comments;
+    var name = req.body.name;
+    var weburl = req.body.weburl;
+    var email = req.body.email;
+    var comments = req.body.comments;
   sendgrid.send({
   to:       'mdhellstrom@gmail.com',
   from:     'me@example.com',
