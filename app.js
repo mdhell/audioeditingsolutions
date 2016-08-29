@@ -19,8 +19,8 @@ app.get("/", function(req, res) {
 sendgrid.send({
   to:       'mdhellstrom@gmail.com',
   from:     'me@example.com',
-  subject:  'Third',
-  text:     'My third email through SendGrid.'
+  subject:  'Fourth',
+  text:     'My fourth email through SendGrid.'
 }, function(err, json) {
   if (err) { return console.error(err); }
   console.log(json);
