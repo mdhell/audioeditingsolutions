@@ -1,10 +1,9 @@
 var express = require("express");
 var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 var app = express();
-// using SendGrid's Node.js Library
-// https://github.com/sendgrid/sendgrid-nodejs
+var bodyParser = require("body-parser");
 
-
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
 
@@ -32,11 +31,9 @@ app.get("/clients", function(req, res) {
    res.render("clients"); 
 });
 
-app.get("/getstarted", function(req, res) {
-   res.render("getstarted"); 
-});
-
-app.post("/getstarted", function(req, res) {
+// using SendGrid's Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+app.post("/getstartedForm", function(req, res) {
     var name = req.body.name;
     var weburl = req.body.weburl;
     var email = req.body.email;
@@ -44,13 +41,20 @@ app.post("/getstarted", function(req, res) {
   sendgrid.send({
   to:       'mdhellstrom@gmail.com',
   from:     'me@example.com',
-  subject:  'Fifth',
-  text:     'My fifth email through SendGrid.' + name + weburl + email + comments
+  subject:  'Working',
+  text:     'Finally, I have figured it out.' + name + weburl + email + comments
 }, function(err, json) {
   if (err) { return console.error(err); }
   console.log(json);
 });
+    res.redirect("/getstarted");
 });
+
+app.get("/getstarted", function(req, res) {
+   res.render("getstarted"); 
+});
+
+
 
 app.get("/about", function(req, res) {
    res.render("about"); 
