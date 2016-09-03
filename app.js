@@ -3,7 +3,7 @@ var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.S
 var app = express();
 var bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true})); // needed to parse input from contact form
 
 app.set("view engine", "ejs");
 
@@ -31,7 +31,7 @@ app.get("/clients", function(req, res) {
    res.render("clients"); 
 });
 
-// using SendGrid's Node.js Library
+// using SendGrid's Node.js Library to post message from contact form
 // https://github.com/sendgrid/sendgrid-nodejs
 app.post("/getstartedForm", function(req, res) {
     var name = req.body.name;
@@ -40,9 +40,9 @@ app.post("/getstartedForm", function(req, res) {
     var comments = req.body.comments;
   sendgrid.send({
   to:       'mdhellstrom@gmail.com',
-  from:     'me@example.com',
-  subject:  'Working',
-  text:     'Finally, I have figured it out.' + name + weburl + email + comments
+  from:     email,
+  subject:  'A message from your website contact form!',
+  text:     'My name is ' + name + '.\n' + ' My web address is: ' +  weburl + '. \n' + 'My email address is: ' + email + '.\n\n' + comments
 }, function(err, json) {
   if (err) { return console.error(err); }
   console.log(json);
@@ -53,7 +53,6 @@ app.post("/getstartedForm", function(req, res) {
 app.get("/getstarted", function(req, res) {
    res.render("getstarted"); 
 });
-
 
 
 app.get("/about", function(req, res) {
