@@ -2,7 +2,7 @@
 .jumbotron {
     
     margin: 0;
-    background-color: #48A3F2;
+    background-color: #C2DDF4;
    
 }
 
@@ -48,6 +48,18 @@ img.img-thumbnail:hover {
 }
 
 #getstarted {
+    text-align: center;
+}
+
+#pricing {
+    text-align: center;
+}
+
+#workflow {
+    text-align: center;
+}
+
+#workflow {
     text-align: center;
 }
 

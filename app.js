@@ -31,6 +31,10 @@ app.get("/clients", function(req, res) {
    res.render("clients"); 
 });
 
+app.get("/workflow", function(req, res) {
+   res.render("workflow"); 
+});
+
 // using SendGrid's Node.js Library to post message from contact form
 // https://github.com/sendgrid/sendgrid-nodejs
 app.post("/getstartedForm", function(req, res) {
@@ -41,8 +45,8 @@ app.post("/getstartedForm", function(req, res) {
   sendgrid.send({
   to:       'mdhellstrom@gmail.com',
   from:     email,
-  subject:  'A message from your website contact form!',
-  text:     'My name is ' + name + '.\n' + ' My web address is: ' +  weburl + '. \n' + 'My email address is: ' + email + '.\n\n' + comments
+  subject:  'A message from your website form!',
+  text:     'You have received a message from ' + name + '.\n' + 'Web address: ' +  weburl + '. \n' + 'Email address: ' + email + '.\n\n' + comments
 }, function(err, json) {
   if (err) { return console.error(err); }
   console.log(json);
