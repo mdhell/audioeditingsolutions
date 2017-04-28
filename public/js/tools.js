@@ -63,3 +63,10 @@ function scaleBannerVideoSize(element){
 
     });
 }
+
+// image slider
+// $(document).ready(function(){
+//       $( window ).load(function() {
+//         $(".img-sliding").animate({left: '250px'});
+//     });
+// });

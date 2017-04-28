@@ -43,7 +43,7 @@ app.post("/getstartedForm", function(req, res) {
     var email = req.body.email;
     var comments = req.body.comments;
   sendgrid.send({
-  to:       'john.bukenas@gmail.com',
+  to:       'ephellstrom@gmail.com',
   from:     email,
   subject:  'A message from your website form!',
   text:     'You have received a message from ' + name + '.\n' + 'Web address: ' +  weburl + '. \n' + 'Email address: ' + email + '.\n\n' + comments
